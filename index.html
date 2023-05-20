@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function power(a, b) {
+  let result = 1;
+  for (let i = 0; i < b; i++) {
+    result *= a;
+  }
+  return result;
+}
+let result = power(2, 3);
+console.log(result);  // Output: 8
+
+
+
+function isLeapYear(year) {
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+let year = 2020;
+let isLeap = isLeapYear(year);
+console.log(isLeap);  // Output: true
+
+
+function calculateS(a, b, c) {
+  return (a + b + c) / 2;
+}
+
+function calculateArea(a, b, c) {
+  let s = calculateS(a, b, c);
+  let area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+  return area;
+}
+let a = 3;
+let b = 4;
+let c = 5;
+
+let area = calculateArea(a, b, c);
+console.log(area);  // Output: 6
+
+
+
+function calculateAverage(subject1, subject2, subject3) {
+  return (subject1 + subject2 + subject3) / 3;
+}
+
+function calculatePercentage(totalMarks, obtainedMarks) {
+  return (obtainedMarks / totalMarks) * 100;
+}
+
+function mainFunction(subject1, subject2, subject3) {
+  let average = calculateAverage(subject1, subject2, subject3);
+  let percentage = calculatePercentage(100, average);
+
+  console.log("Average: " + average);
+  console.log("Percentage: " + percentage + "%");
+}
+
+// Example usage
+mainFunction(80, 90, 95);
+
+
+function customIndexOf(string, character) {
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === character) {
+      return i;
+    }
+  }
+  return -1;
+}
+let str = "Hello, World!";
+let char = "o";
+
+let index = customIndexOf(str, char);
+console.log(index);  // Output: 4
+
+// function vowels (str1,a1,a2,a3,a4,a5){
+// for(let i=0;i<str1.length;i++){
+//   if(str1[i] === "a"){
+//     var aa = i.unshift();
+//     return aa;
+//   }
+//   if(str1[i] === "e"){
+//     var aa = i.unshift();
+//     return aa;
+//   }
+//   if(str1[i] === "i"){
+//     var aa = i.unshift();
+//     return aa;
+//   }
+//   if(str1[i] === "o"){
+//     var aa = i.unshift();
+//     return aa;
+//   }
+//   if(str1[i] === "u"){
+//     var aa = i.unshift();
+//     return aa;
+//   }
+// }
+// }
+// var str1 = "Zunair essay owner"
+// var a1 = "a";
+// var a2 = "e";
+// var a3 = "i";
+// var a4 = "o";
+// var a5 = "u";
+
+// var bb = new1 =vowels (str1,a1,a2,a3,a4,a5);
+// console.log(bb);
+
+
+function deleteVowels(sentence) {
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  let result = '';
+  for (let i = 0; i < sentence.length; i++) {
+    const char = sentence[i].toLowerCase();
+    if (!vowels.includes(char)) {
+      result += sentence[i];
+    }
+  }
+  return result;
+}
+const sentence = "Hello, how are you today?";
+const result1 = deleteVowels(sentence);
+console.log(result1);
+
+function countSuccessiveVowels(sentence1) {
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  let count = 0;
+
+  for (let i = 0; i < sentence1.length - 1; i++) {
+    const char1 = sentence1[i].toLowerCase();
+    const char2 = sentence1[i + 1].toLowerCase();
+
+    switch (char1) {
+      case 'a':
+      case 'e':
+      case 'i':
+      case 'o':
+      case 'u':
+        if (vowels.includes(char2)) {
+          count++;
+        }
+        break;
+      default:
+        break;
+    }
+  }
+
+  return count;
+}
+
+const sentence1 = "Pleases read this application and give me gratuity";
+const count = countSuccessiveVowels(sentence1);
+console.log(count);
+
+
+function convertToMeters(distance_km) {
+  return distance_km * 1000;
+}
+
+function convertToFeet(distance_km) {
+  return distance_km * 3280.84;
+}
+
+function convertToInches(distance_km) {
+  return distance_km * 39370.1;
+}
+
+function convertToCentimeters(distance_km) {
+  return distance_km * 100000;
+}
+
+const distance_km = parseFloat(prompt("Enter the distance between two cities in kilometers:"));
+
+const distance_meters = convertToMeters(distance_km);
+const distance_feet = convertToFeet(distance_km);
+const distance_inches = convertToInches(distance_km);
+const distance_centimeters = convertToCentimeters(distance_km);
+
+document.write("Distance in meters:", distance_meters);
+document.write("Distance in feet:", distance_feet);
+document.write("Distance in inches:", distance_inches);
+document.write("Distance in centimeters:", distance_centimeters);
+
+function calculateOvertimePay(hoursWorked) {
+  const regularHours = 40;
+  const overtimeRate = 12.00;
+
+  if (hoursWorked <= regularHours) {
+    return 0; // No overtime pay if hours worked are within regular hours
+  } else {
+    const overtimeHours = hoursWorked - regularHours;
+    const overtimePay = overtimeHours * overtimeRate;
+    return overtimePay;
+  }
+}
+
+const hoursWorked = parseInt(prompt("Enter the number of hours worked:"));
+
+const overtimePay = calculateOvertimePay(hoursWorked);
+
+document.write("Overtime Pay: Rs.", overtimePay.toFixed(2));
+
+
+
+function calculateCurrencyNotes(amountInHundreds) {
+  const note100 = 100;
+  const note50 = 50;
+  const note10 = 10;
+
+  let remainingAmount = amountInHundreds * 100;
+  let count100 = Math.floor(remainingAmount / note100);
+  remainingAmount %= note100;
+
+  let count50 = Math.floor(remainingAmount / note50);
+  remainingAmount %= note50;
+
+  let count10 = Math.floor(remainingAmount / note10);
+
+  return {
+    note100: count100,
+    note50: count50,
+    note10: count10,
+  };
+}
+
+const amountInHundreds = parseInt(prompt("Enter the amount to be withdrawn (in hundreds):"));
+
+const currencyNotes = calculateCurrencyNotes(amountInHundreds);
+
+document.write("Number of 100 notes:", currencyNotes.note100);
+document.write("Number of 50 notes:", currencyNotes.note50);
+document.write("Number of 10 notes:", currencyNotes.note10);
+
+    </script>
+</body>
+</html>
